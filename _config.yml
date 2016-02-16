@@ -4,7 +4,8 @@ tagline: Your Paas. Your Rules.
 highlighter: pygments
 gems:
   - jemoji
-markdown: redcarpet
+  - jekyll-paginate
+markdown: kramdown
 redcarpet:
   extensions: [ "no_intra_emphasis",
                 "fenced_code_blocks",
