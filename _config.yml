@@ -1,7 +1,7 @@
 name: Deis
 url: http://deis.io
 tagline: Your Paas. Your Rules.
-highlighter: pygments
+highlighter: rouge
 gems:
   - jemoji
   - jekyll-paginate
