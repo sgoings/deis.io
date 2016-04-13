@@ -43,6 +43,7 @@ function url_decode {
   printf '%b' "${url_encoded//%/\\x}"
 }
 
+PROGRAM="deis"
 PLATFORM="$(uname | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -m)"
 DEIS_ARTIFACT_REPO="${DEIS_ARTIFACT_REPO:-"deisci"}"
@@ -66,7 +67,7 @@ mv "${DEIS_CLI}" deis
 
 cat <<EOF
 
-deis is now available in your current directory.
+${PROGRAM} is now available in your current directory.
 
 To learn more about deis, execute:
 
