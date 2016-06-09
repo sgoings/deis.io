@@ -46,8 +46,8 @@ function url_decode {
 PROGRAM="deis"
 PLATFORM="$(uname | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -m)"
-DEIS_ARTIFACT_REPO="${DEIS_ARTIFACT_REPO:-"deisci"}"
-DEIS_VERSION_URL="https://bintray.com/deis/${DEIS_ARTIFACT_REPO}/deis/_latestVersion"
+DEIS_ARTIFACT_REPO="${DEIS_ARTIFACT_REPO:-"deis"}"
+DEIS_VERSION_URL="https://bintray.com/deis/${DEIS_ARTIFACT_REPO}/deis/v2.0.0"
 DEIS_BIN_URL_BASE="https://dl.bintray.com/deis/${DEIS_ARTIFACT_REPO}"
 
 if [ "${ARCH}" == "x86_64" ]; then
@@ -56,7 +56,7 @@ fi
 
 check_platform_arch
 
-VERSION="$(get_latest_version "${DEIS_VERSION_URL}")"
+VERSION="7c8df5a"
 DEIS_CLI="deis-${VERSION}-${PLATFORM}-${ARCH}"
 
 echo "Downloading ${DEIS_CLI} from Bintray..."
