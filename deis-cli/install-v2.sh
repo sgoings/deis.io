@@ -46,9 +46,8 @@ function url_decode {
 PROGRAM="deis"
 PLATFORM="$(uname | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -m)"
-DEIS_ARTIFACT_REPO="${DEIS_ARTIFACT_REPO:-"deis"}"
-DEIS_VERSION_URL="https://bintray.com/deis/${DEIS_ARTIFACT_REPO}/deis/v2.0.0"
-DEIS_BIN_URL_BASE="https://dl.bintray.com/deis/${DEIS_ARTIFACT_REPO}"
+# https://storage.googleapis.com/workflow-cli/v2.0.0/deis-v2.0.0-darwin-386
+DEIS_BIN_URL_BASE="https://storage.googleapis.com/workflow-cli"
 
 if [ "${ARCH}" == "x86_64" ]; then
   ARCH="amd64"
@@ -56,14 +55,14 @@ fi
 
 check_platform_arch
 
-VERSION="7c8df5a"
+VERSION="v2.0.0"
+FOLDER=${VERSION}
 DEIS_CLI="deis-${VERSION}-${PLATFORM}-${ARCH}"
 
-echo "Downloading ${DEIS_CLI} from Bintray..."
-curl -Ls "${DEIS_BIN_URL_BASE}/${DEIS_CLI}" -O
+echo "Downloading ${DEIS_CLI} From Google Cloud Storage..."
+curl -Ls -o deis "${DEIS_BIN_URL_BASE}/${FOLDER}/${DEIS_CLI}"
 
-chmod +x "${DEIS_CLI}"
-mv "${DEIS_CLI}" deis
+chmod +x deis
 
 cat <<EOF
 
