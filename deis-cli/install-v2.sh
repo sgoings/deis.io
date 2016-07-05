@@ -2,7 +2,7 @@
 
 # Invoking this script:
 #
-# curl https://deis.io/deis-cli/install-v2-alpha.sh | sh
+# curl https://deis.io/deis-cli/install-v2.sh | sh
 #
 # - download deis file
 # - making sure deis is executable
@@ -55,7 +55,7 @@ fi
 
 check_platform_arch
 
-VERSION="v2.0.0"
+VERSION="v2.1.0"
 FOLDER=${VERSION}
 DEIS_CLI="deis-${VERSION}-${PLATFORM}-${ARCH}"
 
