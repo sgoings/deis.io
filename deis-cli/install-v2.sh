@@ -9,6 +9,9 @@
 # - explain what was done
 #
 
+# install current version unless overridden by first command-line argument
+VERSION=${1:-v2.1.0}
+
 set -eo pipefail -o nounset
 
 function check_platform_arch {
@@ -55,7 +58,6 @@ fi
 
 check_platform_arch
 
-VERSION="v2.1.0"
 FOLDER=${VERSION}
 DEIS_CLI="deis-${VERSION}-${PLATFORM}-${ARCH}"
 
