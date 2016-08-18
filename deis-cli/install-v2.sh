@@ -10,7 +10,7 @@
 #
 
 # install current version unless overridden by first command-line argument
-VERSION=${1:-v2.3.0}
+VERSION=${1:-v2.4.0}
 
 set -eo pipefail -o nounset
 
