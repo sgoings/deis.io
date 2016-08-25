@@ -28,24 +28,6 @@ EOF
   fi
 }
 
-function get_latest_version {
-  local url="${1}"
-  local version
-  version="$(curl -sI "${url}" | grep "Location:" | sed -n 's%.*deis/%%;s%/view.*%%p' )"
-
-  if [ -z "${version}" ]; then
-    echo "There doesn't seem to be a version of ${PROGRAM} avaiable at ${url}." 1>&2
-    return 1
-  fi
-
-  url_decode "${version}"
-}
-
-function url_decode {
-  local url_encoded="${1//+/ }"
-  printf '%b' "${url_encoded//%/\\x}"
-}
-
 PROGRAM="deis"
 PLATFORM="$(uname | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -m)"
