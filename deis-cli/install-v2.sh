@@ -49,8 +49,8 @@ function url_decode {
 PROGRAM="deis"
 PLATFORM="$(uname | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -m)"
-# https://storage.googleapis.com/workflow-cli/v2.0.0/deis-v2.0.0-darwin-386
-DEIS_BIN_URL_BASE="https://storage.googleapis.com/workflow-cli"
+# https://storage.googleapis.com/workflow-cli-release/v2.0.0/deis-v2.0.0-darwin-386
+DEIS_BIN_URL_BASE="https://storage.googleapis.com/workflow-cli-release"
 
 if [ "${ARCH}" == "x86_64" ]; then
   ARCH="amd64"
