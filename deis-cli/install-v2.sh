@@ -10,7 +10,7 @@
 #
 
 # install current version unless overridden by first command-line argument
-VERSION=${1:-v2.4.0}
+VERSION=${1:-stable}
 
 set -eo pipefail -o nounset
 
@@ -40,11 +40,14 @@ fi
 
 check_platform_arch
 
-FOLDER=${VERSION}
 DEIS_CLI="deis-${VERSION}-${PLATFORM}-${ARCH}"
+DEIS_CLI_PATH="${DEIS_CLI}"
+if [ "${VERSION}" != 'stable' ]; then
+  DEIS_CLI_PATH="${VERSION}/${DEIS_CLI_PATH}"
+fi
 
 echo "Downloading ${DEIS_CLI} From Google Cloud Storage..."
-curl -Ls -o deis "${DEIS_BIN_URL_BASE}/${FOLDER}/${DEIS_CLI}"
+curl -Ls -o deis "${DEIS_BIN_URL_BASE}/${DEIS_CLI_PATH}"
 
 chmod +x deis
 
