@@ -1,0 +1,5 @@
+# This file provides credentials and configuration for the `make deploy` process
+S3_ID="AKIA..."
+S3_KEY="SECRET"
+S3_BUCKET="example-deis-io-bucket"
+CLOUDFRONT_DIST_ID="CFID12312"
