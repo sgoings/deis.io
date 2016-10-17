@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -ex
+
+cd /app
+bundle exec jekyll build ./_site

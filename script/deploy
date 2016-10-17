@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -ex
+
+cd /app
+bundle exec s3_website cfg apply
+bundle exec s3_website push --force
