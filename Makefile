@@ -13,12 +13,14 @@ DOCKER_SHELL_CMD := docker run -v $(CURDIR):$(CONTAINER_ROOT) --env-file=$(CONTA
 prep:
 	$(DOCKER_RUN_CMD) $(CONTAINER_ROOT)/script/prep
 
+test: prep
+	$(DOCKER_RUN_CMD) $(CONTAINER_ROOT)/script/build
+
 build:
 	$(DOCKER_RUN_CMD) $(CONTAINER_ROOT)/script/build
 
 deploy:
 	$(DOCKER_RUN_CMD) $(CONTAINER_ROOT)/script/deploy
-
 
 shell:
 	$(DOCKER_SHELL_CMD) /bin/bash
