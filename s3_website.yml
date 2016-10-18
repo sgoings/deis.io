@@ -34,6 +34,14 @@ cloudfront_wildcard_invalidation: true
 # concurrency_level: 5
 treat_zero_length_objects_as_redirects: true
 
+routing_rules:
+  - condition:
+      key_prefix_equals: blog
+    redirect:
+      host_name: deis.com
+      replace_key_prefix_with: blog
+      http_redirect_code: 302
+
 redirects:
   deis-0-0-4-public-preview: https://deis.com/blog/2013/deis-0-0-4-public-preview/
   deis-0-0-4-video-preview: https://deis.com/blog/2013/deis-0-0-4-video-preview/
