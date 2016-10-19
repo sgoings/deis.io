@@ -41,6 +41,12 @@ routing_rules:
       host_name: deis.com
       replace_key_prefix_with: blog
       http_redirect_code: 302
+  - condition:
+      key_prefix_equals: get-involved
+    redirect:
+      host_name: deis.com
+      replace_key_prefix_with: community
+      http_redirect_code: 302
 
 redirects:
   4000-stars-and-100-contributors: https://deis.com/blog/2015/4000-stars-and-100-contributors/
