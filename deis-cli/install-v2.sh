@@ -47,7 +47,7 @@ if [ "${VERSION}" != 'stable' ]; then
 fi
 
 echo "Downloading ${DEIS_CLI} From Google Cloud Storage..."
-curl -Ls -o deis "${DEIS_BIN_URL_BASE}/${DEIS_CLI_PATH}"
+curl -fsSL -o deis "${DEIS_BIN_URL_BASE}/${DEIS_CLI_PATH}"
 
 chmod +x deis
 
