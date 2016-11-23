@@ -2,7 +2,11 @@
 
 # Invoking this script:
 #
-# curl https://deis.io/deis-cli/install-v2.sh | sh
+# To install the latest stable version:
+# curl http://deis.io/deis-cli/install-v2.sh | bash
+#
+# To install a specific released version ($VERSION):
+# curl http://deis.io/deis-cli/install-v2.sh | bash -x -s $VERSION
 #
 # - download deis file
 # - making sure deis is executable
