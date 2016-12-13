@@ -1,6 +1,6 @@
 name: Deis
-url: http://deis.io
-tagline: Your Paas. Your Rules.
+url: https://deis.io
+tagline: The Kubernetes Company
 highlighter: rouge
 gems:
   - jemoji
