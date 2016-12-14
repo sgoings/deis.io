@@ -32,17 +32,21 @@
 
     <div class="container">
         <div class="row">
-            <div class="span3 hoop col1">
-                <div class="nav-border">
-                    <ul class="nav nav-list menu">
-                        <li><a href="/"><img class="logo" src="/assets/img/menu-logo.png" alt="deis logo"></a></li>
-                        <li class="divider"></li>
-                        <div style="clear:both;"></div>
-                    </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="{% if page.content-class %}{{ page.content-class }}{% else %}span9{% endif %} hoop content">
+            <div class="{% if page.content-class %}{{ page.content-class }}{% else %}span8 offset2{% endif %} hoop content">
+
+              <div class="row intro">
+                  <div class="span2">
+                      <a href="https://deis.com/"><img class="logo" src="/assets/img/menu-logo.png" alt="deis logo"></a>
+                  </div>
+                  <div class="span6 pink">
+                      <div class="home content">
+                          <p><a href="https://deis.com">Deis</a> builds powerful, open source tools that make it easy for teams to create and manage applications on Kubernetes.</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+
                 {{ content }}
             </div>
         </div> <!-- .row -->
