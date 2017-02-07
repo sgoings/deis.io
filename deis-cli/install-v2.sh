@@ -1,15 +1,15 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Invoking this script:
 #
 # To install the latest stable version:
-# curl https://deis.io/deis-cli/install-v2.sh | sh
+# curl http://deis.io/deis-cli/install-v2.sh | bash
 #
 # To install a specific released version ($VERSION):
-# curl https://deis.io/deis-cli/install-v2.sh | sh -s $VERSION
+# curl http://deis.io/deis-cli/install-v2.sh | bash -x -s $VERSION
 #
-# - download deis cli binary
-# - making sure deis cli binary is executable
+# - download deis file
+# - making sure deis is executable
 # - explain what was done
 #
 
@@ -18,20 +18,21 @@ VERSION=${1:-stable}
 
 set -eo pipefail -o nounset
 
-check_platform_arch() {
+function check_platform_arch {
   local supported="linux-amd64 darwin-amd64"
 
   if ! echo "${supported}" | tr ' ' '\n' | grep -q "${PLATFORM}-${ARCH}"; then
     cat <<EOF
 
-The Deis Workflow CLI (deis) is not currently supported on ${PLATFORM}-${ARCH}.
+${PROGRAM} is not currently supported on ${PLATFORM}-${ARCH}.
 
-See https://deis.com/workflow/ for more information.
+See https://github.com/deis/workflow for more information.
 
 EOF
   fi
 }
 
+PROGRAM="deis"
 PLATFORM="$(uname | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -m)"
 # https://storage.googleapis.com/workflow-cli-release/v2.0.0/deis-v2.0.0-darwin-386
@@ -56,9 +57,9 @@ chmod +x deis
 
 cat <<EOF
 
-The Deis Workflow CLI (deis) is now available in your current directory.
+${PROGRAM} is now available in your current directory.
 
-To learn more about Deis Workflow, execute:
+To learn more about deis, execute:
 
     $ ./deis --help
 
