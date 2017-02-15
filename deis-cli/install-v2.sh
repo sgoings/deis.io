@@ -1,44 +1,43 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Invoking this script:
 #
 # To install the latest stable version:
-# curl http://deis.io/deis-cli/install-v2.sh | bash
+# curl https://deis.io/deis-cli/install-v2.sh | sh
 #
 # To install a specific released version ($VERSION):
-# curl http://deis.io/deis-cli/install-v2.sh | bash -x -s $VERSION
+# curl https://deis.io/deis-cli/install-v2.sh | sh -s $VERSION
 #
-# - download deis file
-# - making sure deis is executable
+# - download deis cli binary
+# - making sure deis cli binary is executable
 # - explain what was done
 #
 
 # install current version unless overridden by first command-line argument
 VERSION=${1:-stable}
 
-set -eo pipefail -o nounset
+set -euf
 
-function check_platform_arch {
+check_platform_arch() {
   local supported="linux-amd64 darwin-amd64"
 
   if ! echo "${supported}" | tr ' ' '\n' | grep -q "${PLATFORM}-${ARCH}"; then
     cat <<EOF
 
-${PROGRAM} is not currently supported on ${PLATFORM}-${ARCH}.
+The Deis Workflow CLI (deis) is not currently supported on ${PLATFORM}-${ARCH}.
 
-See https://github.com/deis/workflow for more information.
+See https://deis.com/workflow/ for more information.
 
 EOF
   fi
 }
 
-PROGRAM="deis"
 PLATFORM="$(uname | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -m)"
 # https://storage.googleapis.com/workflow-cli-release/v2.0.0/deis-v2.0.0-darwin-386
 DEIS_BIN_URL_BASE="https://storage.googleapis.com/workflow-cli-release"
 
-if [ "${ARCH}" == "x86_64" ]; then
+if [ "${ARCH}" = "x86_64" ]; then
   ARCH="amd64"
 fi
 
@@ -57,9 +56,9 @@ chmod +x deis
 
 cat <<EOF
 
-${PROGRAM} is now available in your current directory.
+The Deis Workflow CLI (deis) is now available in your current directory.
 
-To learn more about deis, execute:
+To learn more about Deis Workflow, execute:
 
     $ ./deis --help
 
